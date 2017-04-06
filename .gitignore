@@ -1,0 +1,10 @@
+node_modules
+npm-debug.log
+start.sh
+.avoscloud
+.leancloud
+public
+
+# VIM
+*~
+*.swp
