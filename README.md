@@ -3,6 +3,7 @@
 ## 项目简介
 
 这是一个完全由 Vue 全家桶来实现的轻博客应用，覆盖于前后台，优雅全面完整独立的web应用。后台由LeanCloud提供 RESTful Api 支持。
+[在线预览](http://nickj.leanapp.cn/)
 
 ### Version 1.0
 > 初始化1.0版本，仅完成前后端api连接过程，发布和样式还未完成
