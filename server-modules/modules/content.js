@@ -59,6 +59,7 @@ Content.contentList = async(req, res) => {
         result.objectId = item.get('objectId')
         result.title = item.get('title')
         result.abstract = item.get('abstract')
+        result.author = item.get('author')
         result.createdAt = item.get('createdAt').Format("yyyy-MM-dd hh:mm:ss")
         arr.push(result)
       }

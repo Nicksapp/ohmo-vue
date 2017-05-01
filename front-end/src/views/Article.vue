@@ -10,11 +10,6 @@
 <script>
 import { mapGetters, mapActions } from 'vuex'
 export default {
-  data () {
-    return {
-
-    }
-  },
   computed: {
     article () {
       return this.$store.state.article
@@ -25,9 +20,6 @@ export default {
   },
   beforeDestroy (){
     this.$store.dispatch('clearArticle')
-  },
-  methods: {
-
   }
 }
 </script>
