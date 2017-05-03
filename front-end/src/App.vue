@@ -19,6 +19,8 @@ export default {
 html,body,#app {
   width: 100%;
   height: 100%;
+  max-height: 100%;
+  font-size: 62.5%;
 }
 a {
   text-decoration: none;
@@ -30,4 +32,14 @@ a {
   /*text-align: center;*/
   color: #2c3e50;
 }
+@media only screen and (max-width: 726px) {
+    html {
+       font-size: 75%;
+    }
+  }
+@media only screen and (min-width: 727px) {
+    html {
+       font-size: 85%;
+    }
+  }
 </style>

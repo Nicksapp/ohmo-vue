@@ -64,7 +64,7 @@
     transition: all .4s;
     list-style: none;
     .item {
-      font-size: 1em;
+      font-size: 1rem;
       color: #fff;
     }
   }
@@ -78,14 +78,14 @@
   }
   
   .nav-invisible {
-    transform: translate(0, -4em)
+    transform: translate(0, -4rem)
   }
   
   .nav a {
-    font-size: 1em;
+    font-size: 1rem;
     display: block;
     margin: 0;
-    padding: .8em 1.2em;
+    padding: .8rem 1.2rem;
     opacity: 1;
     transition: opacity 0.4s;
     cursor: pointer;
@@ -117,6 +117,12 @@
       top: 50%;
       left: 50%;
       transform: translateX(-50%) translateY(-50%);
+      h1 {
+        font-size: 3.2rem;
+      }
+      p {
+        font-size: 1.2rem;
+      }
     }
   }
 </style>
