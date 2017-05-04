@@ -86,7 +86,9 @@ Content.article  = async(req, res) => {
     let result = {}
     if (data) {
       result.title = data.get('title')
+      result.cover = data.get('cover').get('url')
       result.content = data.get('content')
+      result.createdAt = data.get('createdAt').Format("yyyy-MM-dd")
       res.send(result)
     } else {
       throw new Error('article can not found')

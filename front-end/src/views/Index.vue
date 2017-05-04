@@ -65,6 +65,14 @@
       padding-bottom: 4rem;
       position: relative;
       border-bottom: 1px solid #ebf2f6;
+      @media only screen and (max-width: 726px) {
+        width: auto;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        margin-left: 16px;
+        margin-right: 16px;
+        padding-bottom: 2rem;
+      }
       &::after {
         content: '';
         width: 7px;
@@ -109,17 +117,5 @@
       }
     }
   }
-  
-  @media only screen and (max-width: 726px) {
-    .main-wrapper {
-      .main-item {
-        width: auto;
-        margin-top: 2rem;
-        margin-bottom: 2rem;
-        margin-left: 16px;
-        margin-right: 16px;
-        padding-bottom: 2rem;
-      }
-    }
-  }
+
 </style>

@@ -1,28 +1,27 @@
 <template>
-    <header>
-        <ul :class="['nav', { 'nav-fixed': !isTop, 'nav-invisible': !isVisible }]">
-            <li>
-                <router-link class="item" to="/home">主页</router-link>
-            </li>
-            <li>
-                <router-link class="item" to="/about">关于</router-link>
-            </li>
-            <li>
-                <router-link class="item" to="/tags">标签</router-link>
-            </li>
-        </ul>
-        <div class="img-wrap">
-            <img src="http://of30nsqpd.bkt.clouddn.com/2015061101335924.jpeg" />
-        </div>
-        <div class="text-wrap">
-            <h1>Nickj</h1>
-            <p>出发之前永远是梦想，上路之后永远是挑战</p>
-        </div>
-    </header>
+  <header>
+    <ul :class="['nav', { 'nav-fixed': !isTop, 'nav-invisible': !isVisible }]">
+      <li>
+        <router-link class="item" to="/home">主页</router-link>
+      </li>
+      <li>
+        <router-link class="item" to="/about">关于</router-link>
+      </li>
+      <li>
+        <router-link class="item" to="/tags">标签</router-link>
+      </li>
+    </ul>
+    <div class="img-wrap">
+      <img src="http://of30nsqpd.bkt.clouddn.com/2015061101335924.jpeg" />
+    </div>
+    <div class="text-wrap">
+      <h1>Nickj</h1>
+      <p>出发之前永远是梦想，上路之后永远是挑战</p>
+    </div>
+  </header>
 </template>
 
 <script>
-  
   export default {
     data() {
       return {
@@ -94,7 +93,7 @@
   .nav a:hover {
     opacity: 0.7;
   }
-
+  
   header {
     position: relative;
     max-height: 100vh;

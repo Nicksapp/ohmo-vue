@@ -2,13 +2,17 @@ import { GET_ARTICLE, GET_ARTICLE_FAILURE, CLEAR_ARTICLE } from '../mutation-typ
 
 const state = {
   content: '',
-  title: ''
+  title: '',
+  cover: '',
+  createdAt: ''
 }
 
 const mutations = {
   [GET_ARTICLE] (state, data) {
     state.content = data.content
     state.title = data.title
+    state.createdAt = data.createdAt
+    state.cover = data.cover
   },
   [GET_ARTICLE_FAILURE] (state) {
     return state
@@ -16,6 +20,8 @@ const mutations = {
   [CLEAR_ARTICLE] (state) {
     state.content = ''
     state.title = ''
+    state.cover = ''
+    state.createdAt = ''
   }
 }
 
