@@ -6,6 +6,7 @@ import actions from './actions'
 // modules 模块分类
 import contentList from './modules/contentList'
 import article from './modules/article'
+import commentsList from './modules/commentsList'
 
 Vue.use(Vuex)
 
@@ -18,6 +19,7 @@ export default new Vuex.Store({
   actions,
   modules: {
     contentList,
-    article
+    article,
+    commentsList
   }
 })

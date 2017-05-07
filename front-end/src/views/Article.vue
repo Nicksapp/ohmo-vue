@@ -8,8 +8,9 @@
     <div class="article-wrapper">
       <div class="title" v-text="article.title"></div>
       <div class="content" v-html="content"></div>
+      
+      <Comment></Comment>
     </div>
-    <Comment></Comment>
   </div>
 </template>
 
@@ -74,7 +75,7 @@
   }
   
   .article-wrapper {
-    width: 80%;
+    // width: 95%;
     max-width: 710px;
     margin: 4rem auto;
     .title {

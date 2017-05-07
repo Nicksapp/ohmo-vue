@@ -7,14 +7,15 @@
 const router = require('express').Router();
 
 // 添加路由模块
-const content = require('./modules/content.js');
+const content = require('./modules/content');
+const comments = require('./modules/comment')
 
-
-// 博客文章列表
-
+// 路由设置
 router.get('/hello', content.hello);
 router.get('/content-list', content.contentList);
 router.get('/article/:id', content.article);
 
+router.get('/comments/:articleId', comments.commentsList);
+router.post('/comments/submitComment', comments.submitComment);
 
 module.exports = router;

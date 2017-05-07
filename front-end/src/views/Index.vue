@@ -66,7 +66,7 @@
       position: relative;
       border-bottom: 1px solid #ebf2f6;
       @media only screen and (max-width: 726px) {
-        width: auto;
+        width: 90%;
         margin-top: 2rem;
         margin-bottom: 2rem;
         margin-left: 16px;

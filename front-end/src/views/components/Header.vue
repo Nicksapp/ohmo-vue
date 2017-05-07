@@ -63,7 +63,13 @@
     transition: all .4s;
     list-style: none;
     .item {
-      font-size: 1rem;
+      font-size: 1.2rem;
+      display: block;
+      margin: 0;
+      padding: 1rem 1.2rem;
+      opacity: 1;
+      transition: opacity 0.4s;
+      cursor: pointer;
       color: #fff;
     }
   }
@@ -71,6 +77,7 @@
   .nav-fixed {
     background-color: rgba(255, 255, 255, 0.95);
     border-bottom: 1px solid #bababa;
+    z-index: 1;
     .item {
       color: rgba(0, 0, 0, .8);
     }
@@ -81,13 +88,7 @@
   }
   
   .nav a {
-    font-size: 1rem;
-    display: block;
-    margin: 0;
-    padding: .8rem 1.2rem;
-    opacity: 1;
-    transition: opacity 0.4s;
-    cursor: pointer;
+    
   }
   
   .nav a:hover {

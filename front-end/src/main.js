@@ -6,24 +6,12 @@ import App from './App'
 import router from './router'
 import store from './vuex/store'
 
-import { Menu, MenuItem, MenuItemGroup, Submenu, Col, Row, Input } from 'element-ui'
-// import 'element-ui/lib/theme-default/index.css'
-Vue.use(Menu)
-Vue.use(Submenu)
-Vue.use(MenuItem)
-Vue.use(MenuItemGroup)
-Vue.use(Col)
-Vue.use(Row)
-Vue.use(Input)
+import ElementUI from 'element-ui'   // 完整引入
+import 'element-ui/lib/theme-default/index.css'
+Vue.use(ElementUI)
 
 import fastClick from 'fastclick'
 fastClick.attach(document.body) // 消除移动端双击延时
-
-// 改写原型链
-Vue.prototype.$ajax = axios
-
-// Vue.use(VueResource)
-// Vue.http.options.emulateJSON = true
 
 Vue.config.productionTip = false
 
