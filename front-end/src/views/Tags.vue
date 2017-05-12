@@ -1,13 +1,16 @@
 <template>
     <div>
-        <vHeader headline="标签"/>
+        <header class="a-header">
+            <nav class="main-nav">
+                <h1>{{headerName}}</h1>
+            </nav>
+        </header>
         <div class="tag-list">
             <ul>
                 <li v-for="(tag, index) in tags">
-                    <a @click="update(index, tag.tagName, tag.objectId)" 
-                       :class="{'tag-list-active' : index === selected}">
-                       {{tag.tagName}}
-                    </a>
+                    <a @click="update(index, tag.tagName, tag.objectId)" :class="{'tag-list-active' : index === selected}">
+                           {{tag.tagName}}
+                        </a>
                 </li>
             </ul>
         </div>
@@ -16,7 +19,6 @@
 </template>
 
 <script>
-    
     export default {
         components: {
             TagContentList: function(resolve) {
@@ -26,22 +28,31 @@
                 require(['./components/Header'], resolve)
             }
         },
-        data () {
+        data() {
             return {
-                selected: 0
+                selected: 0,
+                headerName: ''
             }
         },
-        created () {
+        created() {
             this.$store.dispatch('getTags')
         },
         computed: {
-            tags () {
+            tags() {
                 return this.$store.state.tags.tagList
             }
         },
+        watch: {
+            'tags': function (val) {
+                if (val) {
+                    this.headerName = val[0].tagName
+                }
+            }  
+        },
         methods: {
-            update (index, tagName, tagId) {
+            update(index, tagName, tagId) {
                 this.selected = index
+                this.headerName = tagName
                 this.$store.dispatch('getTagContentList', tagId)
             }
         }
@@ -49,6 +60,32 @@
 </script>
 
 <style lang="scss">
+    .a-header {
+        height: 65vh;
+        min-height: 180px;
+        background: url(http://of30nsqpd.bkt.clouddn.com/2015061101335924.jpeg) no-repeat 50% 100%;
+        background-size: cover;
+        @media screen and (max-width: 900px) {
+            height: 45vh;
+        }
+        @media screen and (max-width: 500px) {
+            height: 30vh;
+        }
+        .main-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: inherit;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 100%);
+            h1 {
+                font-size: 3rem;
+                font-weight: 400;
+                color: #fff;
+                font-family: "Comic Sans MS", curslve, sans-serif;
+            }
+        }
+    }
+    
     .tag-list {
         margin: 2rem auto;
         ul {
@@ -90,5 +127,4 @@
             color: #fff;
         }
     }
-
 </style>

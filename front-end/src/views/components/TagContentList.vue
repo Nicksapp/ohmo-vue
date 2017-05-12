@@ -22,8 +22,14 @@
             }
         },
         computed: {
-            tagContents() {
+            tagContents () {
                 return this.$store.state.tagContentList.tagContentList
+            },
+            tagId () {
+                return this.$store.state.tagContentList.tagId
+            },
+            tags () {
+                return this.$store.state.tags.tagList
             }
         },
         watch: {
@@ -32,6 +38,12 @@
                 setTimeout(() => {
                     this.show = true
                 }, 400)
+            },
+            'tags': function (val, oldVal) {
+                if (val) {
+                    this.$store.dispatch('getTagContentList', val[0].objectId)
+                    console.log(val[0].tagName)
+                }
             }
         }
     }
