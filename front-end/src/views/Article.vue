@@ -15,10 +15,6 @@
 </template>
 
 <script>
-  import {
-    mapGetters,
-    mapActions
-  } from 'vuex'
   import marked from 'marked'
   import Prism from 'prismjs'
   import 'prismjs/themes/prism.css'

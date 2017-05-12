@@ -7,6 +7,8 @@ import actions from './actions'
 import contentList from './modules/contentList'
 import article from './modules/article'
 import commentsList from './modules/commentsList'
+import tags from './modules/tags'
+import tagContentList from './modules/tagContentList'
 
 Vue.use(Vuex)
 
@@ -20,6 +22,8 @@ export default new Vuex.Store({
   modules: {
     contentList,
     article,
-    commentsList
+    commentsList,
+    tags,
+    tagContentList
   }
 })

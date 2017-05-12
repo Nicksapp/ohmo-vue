@@ -26,8 +26,14 @@
         <a id="firstAnchor"></a>
         <h1 id="comment-form-title">回复 {{replyName}}</h1>
         <div class="comment-form">
-            <input class="form-name" v-model="formName" type="text" placeholder="你的昵称？" maxlength="20" />
-            <textarea class="form-content" v-model="formContent" cols="30" rows="10" placeholder="欢迎发表你的评论-……-"></textarea>
+            <!--<input class="form-name" v-model="formName" type="text" placeholder="你的昵称？" maxlength="20" />-->
+    
+            <el-input class="form-name" v-model="formName" placeholder="你的昵称？"></el-input>
+            <!--<textarea class="form-content" v-model="formContent" cols="30" rows="10" placeholder="欢迎发表你的评论-……-"></textarea>-->
+    
+            <el-input class="form-content" type="textarea" :rows="8" :cols="30" placeholder="欢迎发表你的评论-……-" v-model="formContent">
+            </el-input>
+    
             <div class="comment-reply">
                 <a @click="submit()" class="reply reply-submit">提交</a>
             </div>
@@ -71,7 +77,7 @@
         methods: {
             submit() {
                 if (!this.formName.trim() || !this.formContent.trim()) {
-                    window.alert('昵称和内容不可为空')
+                    this.alertWarn('昵称和内容不可为空!');
                     return
                 }
                 const replyData = {
@@ -90,12 +96,18 @@
             },
             reply(replyToId, replyToName) {
                 this.replyName = replyToName
-                
+    
                 var anchor = this.$el.querySelector('#firstAnchor')
                 document.body.scrollTop = anchor.offsetTop
-
+    
                 this.formReply = replyToId
-            }
+            },
+            alertWarn(msg) {
+                this.$message({
+                    message: msg,
+                    type: 'warning'
+                });
+            },
         }
     }
 </script>
@@ -155,14 +167,11 @@
             padding: 1rem;
             .form-name,
             .form-content {
-                border: 1px solid #d2d2d2;
+                // border: 1px solid #d2d2d2;
                 margin-bottom: 1rem;
-                padding: 1rem;
+                // padding: 1rem;
                 font-size: 1.2rem;
-                border-radius: .5rem;
-            }
-            .form-name {
-                height: 1rem;
+                // border-radius: .5rem;
             }
             .form-content {
                 resize: none;

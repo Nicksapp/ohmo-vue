@@ -8,7 +8,8 @@ const router = require('express').Router();
 
 // 添加路由模块
 const content = require('./modules/content');
-const comments = require('./modules/comment')
+const comments = require('./modules/comment');
+const tags = require('./modules/tags');
 
 // 路由设置
 router.get('/hello', content.hello);
@@ -17,5 +18,8 @@ router.get('/article/:id', content.article);
 
 router.get('/comments/:articleId', comments.commentsList);
 router.post('/comments/submitComment', comments.submitComment);
+
+router.get('/tags', tags.tags);
+router.get('/tags/:tagId', tags.tagList);
 
 module.exports = router;

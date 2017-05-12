@@ -1,6 +1,7 @@
 <template lang="html">
   <div class="">
-    <vHeader />
+    <vHeader headline="Nickj"
+             subline="出发之前永远是梦想，上路之后永远是挑战"/>
   
     <ul class="main-wrapper" id="content">
       <li v-for="item in contentList" class="main-item">
@@ -24,12 +25,7 @@
   </div>
 </template>
 
-<script>
-  import {
-    mapGetters,
-    mapActions
-  } from 'vuex'
-  
+<script>  
   import vHeader from './components/Header.vue'
   import vFooter from './components/Footer.vue'
   

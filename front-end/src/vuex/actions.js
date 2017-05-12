@@ -51,5 +51,34 @@ export default {
       .catch(error => {
         commit(types.SUBMIT_COMMENT_FAILURE, error)
       })
+  },
+
+  // 获取标签集, 获取指定标签列表
+  getTags ({ commit }) {
+    axios.get(API_ROOT + 'api/tags')
+      .then(response => {
+        commit(types.GET_TAGS, response.data)
+      })
+      .catch(error => {
+        commit(types.GET_TAGS_FAILURE, error)
+      })
+  },
+  getTagContentList ({ commit }, tagId) {
+    axios.get(API_ROOT + 'api/tags/' + tagId)
+      .then(response => {
+        commit(types.GET_TAG_CONTENT_LIST, response.data, tagId)
+      })
+      .catch(error => {
+        commit(types.GET_TAG_CONTENT_LIST_FAILURE, error)
+      })
   }
+
+  // 获取 Headline, 更新 Headline
+  // getHeadline ({ commit }) {
+  //   commit(types.GET_HEADLINE)
+  // },
+  // updateHeadline ({ commit }, value) {
+  //   commit(types.UPDATE_HEADLINE, value)
+  // }
+
 }
