@@ -1,7 +1,8 @@
 <template lang="html">
   <div class="">
     <vHeader headline="Nickj"
-             subline="出发之前永远是梦想，上路之后永远是挑战"/>
+             subline="出发之前永远是梦想，上路之后永远是挑战"
+             mySrc="http://of30nsqpd.bkt.clouddn.com/2015061101335924.jpeg"/>
   
     <ul class="main-wrapper" id="content">
       <li v-for="item in contentList" class="main-item">

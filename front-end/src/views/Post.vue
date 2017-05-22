@@ -1,5 +1,6 @@
 <template lang="html">
   <div class="my-post">
+    <el-row class="top-nav-wrapper"></el-row>
     <el-row class="left-nav-wrapper">
       <el-col class="left-nav">
         <div class="section-author">
@@ -114,6 +115,11 @@
           }
         }
       }
+    }
+    .top-nav-wrapper {
+      width: 100%;
+      height: 3rem;
+      background-color: lightblue;
     }
   }
 </style>

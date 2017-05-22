@@ -1,6 +1,6 @@
 <template>
     <footer>
-      <div class="pagination">
+      <!--<div class="pagination">
           <router-link :to="{name: 'Index'}" class="new-post">
               <span>←</span> Newer Post 
           </router-link>
@@ -10,11 +10,11 @@
           <router-link :to="{name: 'Index'}" class="older-post">
               Older Post <span>→</span>
           </router-link>
-      </div>
+      </div>-->
     
       <div class="footer-info">
-        <span><strong>Ohmo</strong> © 2017</span>
-        <span>Proudly Made By <strong>Nickj</strong></span>
+        <span><strong> <a href="https://github.com/Nicksapp/ohmo-vue">Ohmo</a></strong> © 2017</span>
+        <span>Proudly Made By <strong> <a href="https://github.com/Nicksapp">Nickj</a> </strong></span>
       </div>
     </footer>
 </template>

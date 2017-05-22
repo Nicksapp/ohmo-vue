@@ -1,5 +1,6 @@
 <template>
     <div>
+        <vNav></vNav>
         <header class="a-header">
             <nav class="main-nav">
                 <h1>{{headerName}}</h1>
@@ -26,6 +27,9 @@
             },
             vHeader: function(resolve) {
                 require(['./components/Header'], resolve)
+            },
+            vNav: function(resolve) {
+                require(['./components/Nav'], resolve)
             }
         },
         data() {
@@ -59,11 +63,11 @@
     }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     .a-header {
         height: 65vh;
         min-height: 180px;
-        background: url(http://of30nsqpd.bkt.clouddn.com/2015061101335924.jpeg) no-repeat 50% 100%;
+        background: url(http://bannerdesign.cn/wp-content/uploads/2015/10/2015101401242887.jpeg) no-repeat 50% 100%;
         background-size: cover;
         @media screen and (max-width: 900px) {
             height: 45vh;

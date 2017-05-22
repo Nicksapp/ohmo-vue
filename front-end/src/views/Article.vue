@@ -1,5 +1,6 @@
 <template lang="html">
-  <div class="">
+  <div class="" 
+       v-loading.fullscreen.lock="loading">
     <header class="a-header" 
             :style="{background: 'url('+article.cover+')' + 'center center / cover', backgroundSize: 'cover'}">
       <nav class="main-nav">
@@ -40,10 +41,16 @@
           }
         })
         return _content
+      },
+      loading () {
+        return this.$store.state.article.loading
       }
     },
-    created() {
+    created () {
       this.$store.dispatch('getArticle', this.$route.params.id)
+    },
+    mounted () {
+      
     },
     beforeDestroy() {
       this.$store.dispatch('clearArticle')

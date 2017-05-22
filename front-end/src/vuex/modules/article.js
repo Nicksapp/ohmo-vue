@@ -4,7 +4,8 @@ const state = {
   content: '',
   title: '',
   cover: '',
-  createdAt: ''
+  createdAt: '',
+  loading: true
 }
 
 const mutations = {
@@ -13,6 +14,7 @@ const mutations = {
     state.title = data.title
     state.createdAt = data.createdAt
     state.cover = data.cover
+    state.loading = false
   },
   [GET_ARTICLE_FAILURE] (state) {
     return state
@@ -22,6 +24,7 @@ const mutations = {
     state.title = ''
     state.cover = ''
     state.createdAt = ''
+    state.loading = true
   }
 }
 

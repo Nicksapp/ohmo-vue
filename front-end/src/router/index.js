@@ -25,6 +25,12 @@ export default new Router({
             require(['@/views/Tags'], resolve)
         }
     }, {
+        path: '/about',
+        name: 'about',
+        component: function(resolve) {
+            require(['@/views/About'], resolve)
+        }
+    },{
         path: '/hello',
         name: 'Hello',
         component: Hello

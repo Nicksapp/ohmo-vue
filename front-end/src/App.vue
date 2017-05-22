@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <router-view></router-view>
+    <transition name="">
+      <router-view></router-view>
+    </transition>
   </div>
 </template>
 
@@ -38,12 +40,12 @@
   
   .fade-enter-active,
   .fade-leave-active {
-    transition: all .4s ease
+    transition: all .4s ease;
   }
   
   .fade-enter,
   .fade-leave-active {
-    opacity: 0
+    opacity: 0;
   }
   
   @media only screen and (max-width: 726px) {
