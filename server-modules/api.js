@@ -15,6 +15,7 @@ const tags = require('./modules/tags');
 router.get('/hello', content.hello);
 router.get('/content-list', content.contentList);
 router.get('/article/:id', content.article);
+router.post('/article/submitArticle', content.submitArticle);
 
 router.get('/comments/:articleId', comments.commentsList);
 router.post('/comments/submitComment', comments.submitComment);

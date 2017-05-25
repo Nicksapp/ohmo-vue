@@ -26,9 +26,9 @@ Date.prototype.Format = function(fmt) {
         fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
     for (var k in o)
         if (new RegExp("(" + k + ")").test(fmt))
-            fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1)
-                ? (o[k])
-                : (("00" + o[k]).substr(("" + o[k]).length)));
+            fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ?
+                (o[k]) :
+                (("00" + o[k]).substr(("" + o[k]).length)));
     return fmt;
 
 }
@@ -36,66 +36,95 @@ Date.prototype.Format = function(fmt) {
 let Content = {};
 
 Content.hello = (req, res) => {
-  console.log("成功运行-It works!");
-  res.send({
-    hello: "It works!"
-  });
+    console.log("成功运行-It works!");
+    res.send({
+        hello: "It works!"
+    });
 };
 
 // 获取文章列表
 Content.contentList = async(req, res) => {
-  const queryContentList = () => {
-    const query = new AV.Query('ContentList') // 创建查询实例
-    query.descending('createdAt')
-    return query.find()
-  }
-  try {
-    const data = await queryContentList()
-
-    if (data) {
-      let arr = []
-      for (let item of data) {
-        let result = {}
-        result.objectId = item.get('objectId')
-        result.title = item.get('title')
-        result.abstract = item.get('abstract')
-        result.author = item.get('author')
-        result.createdAt = item.get('createdAt').Format("yyyy-MM-dd hh:mm:ss")
-        arr.push(result)
-      }
-      res.send(arr)
-    } else {
-      throw new Error('Can\'t find the data-Content')
+    const queryContentList = () => {
+        const query = new AV.Query('ContentList') // 创建查询实例
+        query.descending('createdAt')
+        return query.find()
     }
-  } catch (error) {
-    console.log(error)
-  }
+    try {
+        const data = await queryContentList()
+
+        if (data) {
+            let arr = []
+            for (let item of data) {
+                let result = {}
+                result.objectId = item.get('objectId')
+                result.title = item.get('title')
+                result.abstract = item.get('abstract')
+                result.author = item.get('author')
+                result.createdAt = item.get('createdAt').Format("yyyy-MM-dd hh:mm:ss")
+                arr.push(result)
+            }
+            res.send(arr)
+        } else {
+            throw new Error('Can\'t find the data-Content')
+        }
+    } catch (error) {
+        console.log(error)
+    }
 }
 
 // 获取指定 id 的文章信息
-Content.article  = async(req, res) => {
-  const id = req.params.id
+Content.article = async(req, res) => {
+    const id = req.params.id
 
-  const queryArticle = (id) => {
-    const query = new AV.Query('ContentList')
-    return query.get(id)
-  }
-  try {
-    const data = await queryArticle(id)
-
-    let result = {}
-    if (data) {
-      result.title = data.get('title')
-      result.cover = data.get('cover').get('url')
-      result.content = data.get('content')
-      result.createdAt = data.get('createdAt').Format("yyyy-MM-dd")
-      res.send(result)
-    } else {
-      throw new Error('article can not found')
+    const queryArticle = (id) => {
+        const query = new AV.Query('ContentList')
+        return query.get(id)
     }
-  } catch (error) {
-    console.log(error)
-  }
+    try {
+        const data = await queryArticle(id)
+
+        let result = {}
+        if (data) {
+            result.title = data.get('title')
+            result.cover = data.get('cover').get('url')
+            result.content = data.get('content')
+            result.createdAt = data.get('createdAt').Format("yyyy-MM-dd")
+            res.send(result)
+        } else {
+            throw new Error('article can not found')
+        }
+    } catch (error) {
+        console.log(error)
+    }
+
+}
+
+var postContentList = AV.Object.extend('ContentList');
+
+Content.submitArticle = async(req, res) => {
+
+    let _post = {
+        title: req.body.title,
+        content: req.body.content,
+        abstract: req.body.abstract
+    }
+
+    if (!_post.title.trim() || !_post.content.trim()) {
+        res.status(500).send('昵称和内容不可为空')
+    }
+
+    let myPost = new postContentList();
+    myPost.set('title', _post.title);
+    myPost.set('content', _post.content);
+    myPost.set('abstract', _post.abstract);
+
+    myPost.save().then(function(p) {
+        console.log('objectId is ' + p.id);
+        res.send(p.id + " -> post successfully" );
+    }, function(error) {
+        console.error(error);
+        res.status(500).send(error)
+    });
 
 }
 

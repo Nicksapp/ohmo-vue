@@ -17,6 +17,7 @@
 * Vue-router 前端路由
 * Axios 网络请求
 * fastclick 解决移动端延迟问题
+* Element-UI
 
 **后端**
 
@@ -24,6 +25,14 @@
 * Express 应用框架
 * LeanCloud 数据存储
 
+**组件**
+- [x] Markdown渲染
+- [x] 响应式页面
+- [x] 文章评论/回复
+- [x] 标签分类
+- [x] 悬浮导航
+- [x] 文章发布
+- [x] RESTful API接口
 
 ```javascript
 文件整体结构
@@ -42,8 +51,11 @@
 ```
 
 ## 运行截图
-1.初始化1.0版本，仅完成前后端api连接过程，发布和样式还未完成
-2.初步完整2.0版本，完善前端PC端与移动端样式，包括全站响应式设计，以及文章markdown文章渲染，代码HightLight等，增加评论与回复功能。下一步开始搭建Blog管理后台。
+**Version 1.0** - 初始化1.0版本，仅完成前后端api连接过程，发布和样式还未完成
+
+**Version 2.0** - 初步完整2.0版本，完善前端PC端与移动端样式，包括全站响应式设计，以及文章markdown文章渲染，代码HightLight等，增加评论与回复功能。
+
+**Version 3.0** - 增加Post发布文章功能，借用Vue数据双向绑定的特点实时显示Markdown编辑后的效果。
 
 ![](http://7xo8ne.com1.z0.glb.clouddn.com/Jietu20170507-202049.jpg)
 

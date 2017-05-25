@@ -28,6 +28,17 @@ export default {
         commit(types.GET_ARTICLE_FAILURE, error)
       })
   },
+  // 发布文章
+  submitArticle( { commit }, data) {
+    axios.post('http://nickj.leanapp.cn/' + 'api/article/submitArticle', data)
+      .then(response => {
+        commit(types.POST_ARTICLE, response.data)
+      })
+      .catch(error => {
+        commit(types.POST_ARTICLE_FAILURE, error)
+      })
+  },
+  
   clearArticle ({ commit }) {
     commit(types.CLEAR_ARTICLE)
   },
@@ -45,7 +56,6 @@ export default {
   submitComment ({ commit }, data) {
     axios.post('http://nickj.leanapp.cn/api/comments/submitComment', data)
       .then(response => {
-        console.log(response)
         commit(types.SUBMIT_COMMENT, response.data)
       })
       .catch(error => {
