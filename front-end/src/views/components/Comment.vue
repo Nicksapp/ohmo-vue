@@ -2,7 +2,7 @@
     <div class="comment">
         <h1>评论</h1>
         <ul class="comments-list">
-            <li class="comment-item" v-for="item in CommentsList">
+            <li class="comment-item" v-for="item in CommentsList" :key="item.objectId">
                 <div class="item-title">
                     <span class="title-name" v-text="item.name"></span>
                     <span class="title-createdAt" v-text="item.createdAt"></span>

@@ -10,6 +10,12 @@
             <li>
                 <router-link class="item" :to="{name: 'tags'}">标签</router-link>
             </li>
+            <li>
+                <router-link class="item" :to="{name: 'post'}">发布</router-link>
+            </li>
+            <li>
+                <router-link class="item" :to="{name: 'register'}">注册</router-link>
+            </li>
         </ul>
     </div>
 </template>

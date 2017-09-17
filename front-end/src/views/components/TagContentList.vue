@@ -2,7 +2,7 @@
     <div class="list-wrapper">
         <transition name="fade">
             <ul class="list-container" v-if="show">
-                <li v-for="item in tagContents">
+                <li v-for="item in tagContents" :key="item.objectId">
                     <router-link :to="{ name: 'article', params: {id: item.objectId} }">
                         <p class="list-title" v-text="item.title"></p>
                         <p class="list-updated" v-text="item.createdAt"></p>

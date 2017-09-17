@@ -40,6 +40,12 @@ export default new Router({
         component: function(resolve) {
             require(['@/views/Post'], resolve)
         }
+    }, {
+        path: '/register',
+        name: 'register',
+        component: function(resolve) {
+            require(['@/views/Register'], resolve)
+        }
     }],
     scrollBehavior(to, from, savedPosition) {
         // return 期望滚动到哪个的位置

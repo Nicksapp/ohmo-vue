@@ -8,7 +8,7 @@
         </header>
         <div class="tag-list">
             <ul>
-                <li v-for="(tag, index) in tags">
+                <li v-for="(tag, index) in tags" :key="tag.objectId">
                     <a @click="update(index, tag.tagName, tag.objectId)" :class="{'tag-list-active' : index === selected}">
                            {{tag.tagName}}
                         </a>

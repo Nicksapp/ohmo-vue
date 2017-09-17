@@ -10,9 +10,7 @@
       <el-col :xs="6" :sm="4" :lg="2">
         <div class="button-section">
           <el-button @click="submit()">发布</el-button>
-  
         </div>
-  
       </el-col>
     </el-row>
   
@@ -36,11 +34,8 @@
             <p>{{words}} words</p>
           </div>
         </div>
-  
       </el-col>
     </el-row>
-  
-  
   </div>
 </template>
 
