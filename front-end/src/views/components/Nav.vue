@@ -10,17 +10,21 @@
             <li>
                 <router-link class="item" :to="{name: 'tags'}">标签</router-link>
             </li>
-            <li>
+            <li v-if="isLogin">
                 <router-link class="item" :to="{name: 'post'}">发布</router-link>
             </li>
-            <li>
-                <router-link class="item" :to="{name: 'register'}">注册</router-link>
+            <li v-if="!isLogin">
+                <router-link class="item" :to="{name: 'login'}">登录</router-link>
+            </li>
+            <li v-else @click="handleLogout()">
+                <span class="item">登出</span>
             </li>
         </ul>
     </div>
 </template>
 
 <script>
+    import router from '../../router'
     export default {
         data() {
             return {
@@ -31,6 +35,11 @@
         },
         created() {
             this.scroll()
+        },
+        computed: {
+            isLogin () {
+                return this.$store.state.user.email
+            }  
         },
         methods: {
             scroll() {
@@ -46,6 +55,14 @@
                         this.isVisible = true
                     }
                 }
+            },
+            handleLogout() {
+                this.$store.dispatch('logoutUser')
+                router.push('/')
+                this.$message({
+                    message: '登出成功!',
+                    type: 'success'
+                });
             }
         }
     }

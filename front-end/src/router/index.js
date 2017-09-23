@@ -41,10 +41,10 @@ export default new Router({
             require(['@/views/Post'], resolve)
         }
     }, {
-        path: '/register',
-        name: 'register',
+        path: '/login',
+        name: 'login',
         component: function(resolve) {
-            require(['@/views/Register'], resolve)
+            require(['@/views/Login'], resolve)
         }
     }],
     scrollBehavior(to, from, savedPosition) {

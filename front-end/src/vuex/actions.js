@@ -81,14 +81,22 @@ export default {
       .catch(error => {
         commit(types.GET_TAG_CONTENT_LIST_FAILURE, error)
       })
+  },
+
+  // 管理员登录
+  loginUser ({ commit }, data) {
+    axios.post('http://nickj.leanapp.cn/api/login', data)
+      .then(response => {
+        commit(types.LOGIN_USER, response.data)
+      })
+      .catch(error => {
+        commit(types.LOGIN_USER_FAILURE, error)
+      })
+  },
+  logoutUser ({ commit }) {
+    axios.post('http://nickj.leanapp.cn/api/logout')
+      .then(response => {
+        commit(types.LOGOUT_USER)
+      })
   }
-
-  // 获取 Headline, 更新 Headline
-  // getHeadline ({ commit }) {
-  //   commit(types.GET_HEADLINE)
-  // },
-  // updateHeadline ({ commit }, value) {
-  //   commit(types.UPDATE_HEADLINE, value)
-  // }
-
 }

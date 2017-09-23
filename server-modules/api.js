@@ -10,6 +10,7 @@ const router = require('express').Router();
 const content = require('./modules/content');
 const comments = require('./modules/comment');
 const tags = require('./modules/tags');
+const user = require('./modules/user');
 
 // 路由设置
 router.get('/hello', content.hello);
@@ -23,4 +24,6 @@ router.post('/comments/submitComment', comments.submitComment);
 router.get('/tags', tags.tags);
 router.get('/tags/:tagId', tags.tagList);
 
+router.post('/login', user.login);
+router.post('/logout', user.logout);
 module.exports = router;

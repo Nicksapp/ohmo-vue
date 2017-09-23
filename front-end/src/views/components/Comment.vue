@@ -86,13 +86,16 @@
                     "reply": this.formReply,
                     "articleId": this.articleId
                 }
-                console.log(replyData)
                 this.$store.dispatch('submitComment', replyData)
                 // this.formName = ''
                 this.formContent = ''
                 this.replyName = ''
                 this.formReply = ''
                 this.$store.dispatch('getCommentsList', this.articleId)
+                this.$message({
+                    message: '感谢您的宝贵评论!',
+                    type: 'success'
+                });
             },
             reply(replyToId, replyToName) {
                 this.replyName = replyToName

@@ -9,6 +9,7 @@ import article from './modules/article'
 import commentsList from './modules/commentsList'
 import tags from './modules/tags'
 import tagContentList from './modules/tagContentList'
+import user from './modules/user'
 
 Vue.use(Vuex)
 
@@ -24,6 +25,7 @@ export default new Vuex.Store({
     article,
     commentsList,
     tags,
-    tagContentList
+    tagContentList,
+    user
   }
 })
