@@ -14,16 +14,21 @@ const user = require('./modules/user');
 
 // 路由设置
 router.get('/hello', content.hello);
-router.get('/content-list', content.contentList);
+
+// Content
+router.get('/contentAll', content.contentList);
+router.get('/contentList/:page', content.getTenContent);
+// Article
 router.get('/article/:id', content.article);
 router.post('/article/submitArticle', content.submitArticle);
-
+// Comment
 router.get('/comments/:articleId', comments.commentsList);
 router.post('/comments/submitComment', comments.submitComment);
-
+// Tag
 router.get('/tags', tags.tags);
 router.get('/tags/:tagId', tags.tagList);
-
+// User
 router.post('/login', user.login);
 router.post('/logout', user.logout);
+
 module.exports = router;

@@ -42,7 +42,6 @@
             'tags': function (val, oldVal) {
                 if (val) {
                     this.$store.dispatch('getTagContentList', val[0].objectId)
-                    console.log(val[0].tagName)
                 }
             }
         }

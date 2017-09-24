@@ -63,17 +63,18 @@
             },
             handleLogout() {
                 this.$store.dispatch('logoutUser')
-                router.push('/')
+                router.push({name: 'Index'})
                 this.$message({
                     message: '登出成功!',
                     type: 'success'
                 });
+                this.$forceUpdate()
             }
         }
     }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     .nav {
         position: fixed;
         width: 100%;

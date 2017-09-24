@@ -6,15 +6,25 @@ axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded
 
 export default {
   // 获取文章列表
-  getContentList ({ commit }) {
+  getAllContentList ({ commit }) {
     commit(types.REQUEST_CONTENT_LIST)
-    axios.get(API_ROOT + 'api/content-list')
+    axios.get(API_ROOT + 'api/contentAll')
       .then(response => {
-        commit(types.GET_CONTENT_LIST, response.data)
-        console.log('getContentList success');
+        // commit(types.GET_CONTENT_LIST, response.data.data)
+        commit(types.GET_CONTENT_LIST_LENGTH, response.data.listLength)
       })
       .catch(error => {
         commit(types.GET_CONTENT_LIST_FAILURE, error)
+      })
+  },
+  getContentByPage ({ commit }, page) {
+    commit(types.REQUEST_CONTENT_LIST, page)
+    axios.get(API_ROOT + 'api/contentlist/' + page)
+      .then(response => {
+        commit(types.GET_CONTENT_LIST, response.data.data)
+      })
+      .catch(error => {
+        commit(types.GET_CONTENT_LIST_FAILURE)
       })
   },
   //  获取文章内容, 清除文章

@@ -37,7 +37,7 @@
       }
     },
     created() {
-      this.$store.dispatch('getContentList')
+      this.$store.dispatch('getContentByPage', 1)
     },
     components: {
       vHeader,
@@ -46,7 +46,7 @@
   }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   .main-wrapper {
     // text-align: center;
     display: flex;

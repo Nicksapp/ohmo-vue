@@ -1,16 +1,16 @@
 <template>
     <footer>
-      <!--<div class="pagination">
-          <router-link :to="{name: 'Index'}" class="new-post">
+      <div class="pagination">
+          <div v-show="!isFirst" @click="lastPage()" class="new-post">
               <span>←</span> Newer Post 
-          </router-link>
+          </div>
           <span class="page-number">
-              Page 1 of 2
+              Page {{curPage}} of {{allPage}}
           </span>
-          <router-link :to="{name: 'Index'}" class="older-post">
+          <div v-show="!isEnd" @click="nextPage()" class="older-post">
               Older Post <span>→</span>
-          </router-link>
-      </div>-->
+          </div>
+      </div>
     
       <div class="footer-info">
         <span><strong> <a href="https://github.com/Nicksapp/ohmo-vue">Ohmo</a></strong> © 2017</span>
@@ -21,7 +21,46 @@
 
 <script>
 export default {
-
+    data() {
+       return {
+           isFirst: true,
+           page: 1,
+           isEnd: false
+       } 
+    },
+    created () {
+        this.$store.dispatch('getAllContentList')  
+    },
+    computed: {
+        curPage() {
+            return this.$store.state.contentList.curPage
+        },
+        allPage() {
+            let allContentListLength = this.$store.state.contentList.length
+            return Math.ceil(allContentListLength/10)
+        }
+    },
+    watch: {
+        curPage(value) {
+            if (value > 1 && value < this.allPage) {
+                this.isFirst = false
+            } else if (value === this.allPage) {
+                this.isEnd = true
+                this.isFirst = false
+            } else {
+                this.isFirst = true
+                this.isEnd = false
+            }
+        },
+    },
+    methods: {
+        nextPage() {
+            this.$store.dispatch('getContentByPage', ++this.page)
+        },
+        lastPage() {
+            this.$store.dispatch('getContentByPage', --this.page)
+        }
+    }
 }
 </script>
 

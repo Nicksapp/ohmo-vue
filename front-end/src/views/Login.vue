@@ -85,7 +85,7 @@
     }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   .main-container {
       display: flex;
       width: 100%;
