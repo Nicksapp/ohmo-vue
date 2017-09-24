@@ -97,6 +97,7 @@ export default {
     axios.post('http://nickj.leanapp.cn/api/logout')
       .then(response => {
         commit(types.LOGOUT_USER)
+        sessionStorage.clear()
       })
   }
 }

@@ -72,17 +72,6 @@
       }
     },
     methods: {
-      open() {
-        this.$alert('这是一段内容', '标题名称', {
-          confirmButtonText: '确定',
-          callback: action => {
-            this.$message({
-              type: 'info',
-              message: `action: ${ action }`
-            });
-          }
-        })
-      },
       submit() {
         if (!this.title.trim() || !this.article.trim()) {
           this.alertWarn('标题或文章不可为空！');

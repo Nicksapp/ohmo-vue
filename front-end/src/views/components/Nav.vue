@@ -38,7 +38,12 @@
         },
         computed: {
             isLogin () {
-                return this.$store.state.user.email
+                let flag = sessionStorage.getItem('username')
+                if (flag) {
+                    return true;
+                } else {
+                    return false;
+                }
             }  
         },
         methods: {

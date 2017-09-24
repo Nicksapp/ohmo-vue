@@ -39,6 +39,10 @@ export default new Router({
         name: 'post',
         component: function(resolve) {
             require(['@/views/Post'], resolve)
+        },
+        beforeEnter: (to, from, next) => {
+            let _username = sessionStorage.getItem('username')
+            _username ? next() : next('/')
         }
     }, {
         path: '/login',

@@ -59,6 +59,7 @@
                         setTimeout(() => {
                             let isLogin = this.$store.state.user.isLogin
                             if (isLogin) {
+                                sessionStorage.setItem('username', this.$store.state.user.username)
                                 this.ruleForm.password = ''
                                 router.push('/')
                                 this.$message({
@@ -67,7 +68,7 @@
                                 });
                             } else {
                                 this.$message({
-                                    message: '不存在此用户',
+                                    message: '用户名或密码错误！',
                                     type: 'warning'
                                 });
                                 return false;
