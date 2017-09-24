@@ -1,6 +1,7 @@
 <template>
     <div class="main-container">
         <div class="formWrap">
+            <h1>OhMo</h1>
             <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="ruleForm">
                 <el-form-item label="用户名" prop="username">
                     <el-input type="text" v-model="ruleForm.username" auto-complete="off" style="width: 200px;"></el-input>
@@ -10,7 +11,7 @@
                 </el-form-item>
             
                 <el-form-item>
-                    <el-button type="primary" @click="submitForm('ruleForm')" @keyup.enter="submitForm('ruleForm')">提交</el-button>
+                    <el-button type="primary" @click="submitForm('ruleForm')" @keyup.enter="submitForm('ruleForm')" style="width: 200px;">提交</el-button>
                 </el-form-item>
             </el-form>
         </div>
@@ -86,17 +87,5 @@
 </script>
 
 <style lang="scss" scoped>
-  .main-container {
-      display: flex;
-      width: 100%;
-      height: inherit;
-      align-items: center;
-      .formWrap {
-          width: 100%;
-          .ruleForm {
-              margin: 0 auto;
-          }
-      }
-  }
-
+  @import '../assets/scss/login.scss';
 </style>

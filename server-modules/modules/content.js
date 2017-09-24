@@ -36,7 +36,6 @@ Date.prototype.Format = function(fmt) {
 let Content = {};
 
 Content.hello = (req, res) => {
-    console.log("成功运行-It works!");
     res.send({
         hello: "It works!"
     });
@@ -110,6 +109,29 @@ Content.getTenContent = async(req, res) => {
         }
     } catch (err) {
         console.error(err)
+    }
+}
+
+// 获取首页头图 url
+Content.getImgUrl = async(req, res) => {
+    const queryImgUrl = () => {
+        const query = new AV.Query('index_background')
+        query.descending('createdAt')
+        return query.find()
+    }
+    try {
+        const data = await queryImgUrl()
+        if (data) {
+            let arr = [];
+            for (let item of data) {
+                arr.push(item.get('img_background').attributes.url)
+            }
+            res.send(arr)
+        } else {
+            throw new Error('Can\'t find the data-Content')
+        }
+    } catch (error) {
+        console.log(error)
     }
 }
 

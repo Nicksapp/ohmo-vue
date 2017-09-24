@@ -1,0 +1,75 @@
+$borderColor: #C0CCDA;
+$titleHeight: 8vh;
+$mainHeight: 100vh-$titleHeight;
+.my-post {
+  overflow-x: hidden;
+  overflow-y: hidden;
+  .title-section {
+    border-bottom: 1px solid $borderColor;
+    .title-input {
+      height: $titleHeight;
+      input {
+        height: inherit;
+        font-size: 1.5rem;
+        font-weight: bold;
+        border: none;
+        border-radius: 0;
+      }
+    }
+    .button-section {
+      height: $titleHeight;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      button {
+        width: 8rem;
+        padding: 8px 15px;
+        border-radius: 3px;
+      }
+    }
+  }
+  .grid-content {
+    height: $mainHeight;
+  }
+  .post-section {
+    border-right: 1px solid $borderColor;
+    .article-textarea {
+      height: 92%;
+      textarea {
+        height: 100%;
+        border: none;
+        border-radius: 0;
+        resize: none;
+      }
+    }
+  }
+  .md-section {
+    .md-main {
+      box-sizing: border-box;
+      height: 92%;
+      overflow-y: scroll;
+      padding: 5px 7px;
+    }
+  }
+  .post-info,
+  .md-info {
+    font-size: .8rem;
+    font-weight: bold;
+    height: 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    border-top: 1px solid $borderColor;
+  }
+  .bg-purple {
+    background: #d3dce6;
+  }
+  .bg-purple-light {
+    background: #e5e9f2;
+  }
+  .bg-purple-dark {
+    background: #99a9bf;
+  }
+}

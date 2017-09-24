@@ -34,12 +34,13 @@
             }
         },
         created() {
-            this.scroll()
+            this.throttle(this.scroll(), 100, 500)
         },
         computed: {
             isLogin () {
                 let flag = sessionStorage.getItem('username')
-                if (flag) {
+                let flag02 = this.$store.state.user.isLogin
+                if (flag || flag02) {
                     return true;
                 } else {
                     return false;
@@ -48,9 +49,9 @@
         },
         methods: {
             scroll() {
-                let beforeScrollTop = document.body.scrollTop
+                let beforeScrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
                 window.onscroll = () => {
-                    const afterScrollTop = document.body.scrollTop
+                    const afterScrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
                     const delta = afterScrollTop - beforeScrollTop
                     this.isTop = afterScrollTop === 0
                     if (delta === 0) return false
@@ -68,13 +69,30 @@
                     message: '登出成功!',
                     type: 'success'
                 });
-                this.$forceUpdate()
+            },
+            throttle (fun, delay, time) {
+                var timeout,
+                    startTime = new Date();
+                return function() {
+                    var context = this,
+                        args = arguments,
+                        curTime = new Date();
+                    clearTimeout(timeout);
+                    // 如果达到了规定的触发时间间隔，触发 handler
+                    if (curTime - startTime >= time) {
+                        fun.apply(context, args);
+                        startTime = curTime;
+                        // 没达到触发间隔，重新设定定时器
+                    } else {
+                        timeout = setTimeout(fun, delay);
+                    }
+                }
             }
         }
     }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
     .nav {
         position: fixed;
         width: 100%;

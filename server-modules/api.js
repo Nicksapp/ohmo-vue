@@ -18,6 +18,7 @@ router.get('/hello', content.hello);
 // Content
 router.get('/contentAll', content.contentList);
 router.get('/contentList/:page', content.getTenContent);
+router.get('/content/backgroundImg', content.getImgUrl);
 // Article
 router.get('/article/:id', content.article);
 router.post('/article/submitArticle', content.submitArticle);

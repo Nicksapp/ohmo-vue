@@ -7,7 +7,7 @@
           <span class="page-number">
               Page {{curPage}} of {{allPage}}
           </span>
-          <div v-show="!isEnd" @click="nextPage()" class="older-post">
+          <div v-show="isEnd" @click="nextPage()" class="older-post">
               Older Post <span>→</span>
           </div>
       </div>
@@ -55,9 +55,11 @@ export default {
     },
     methods: {
         nextPage() {
+            window.scrollTo(0,0)
             this.$store.dispatch('getContentByPage', ++this.page)
         },
         lastPage() {
+            window.scrollTo(0,0)
             this.$store.dispatch('getContentByPage', --this.page)
         }
     }
