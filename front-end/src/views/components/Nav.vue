@@ -34,7 +34,7 @@
             }
         },
         created() {
-            this.throttle(this.scroll(), 100, 500)
+            this.scroll()
         },
         computed: {
             isLogin () {
@@ -69,66 +69,11 @@
                     message: '登出成功!',
                     type: 'success'
                 });
-            },
-            throttle (fun, delay, time) {
-                var timeout,
-                    startTime = new Date();
-                return function() {
-                    var context = this,
-                        args = arguments,
-                        curTime = new Date();
-                    clearTimeout(timeout);
-                    // 如果达到了规定的触发时间间隔，触发 handler
-                    if (curTime - startTime >= time) {
-                        fun.apply(context, args);
-                        startTime = curTime;
-                        // 没达到触发间隔，重新设定定时器
-                    } else {
-                        timeout = setTimeout(fun, delay);
-                    }
-                }
             }
         }
     }
 </script>
 
 <style lang="scss">
-    .nav {
-        position: fixed;
-        width: 100%;
-        display: flex;
-        -webkit-flex-flow: row wrap;
-        justify-content: flex-end;
-        background-color: rgba(0, 0, 0, 0);
-        transition: all .4s;
-        list-style: none;
-        z-index: 100;
-        .item {
-            font-size: 1.2rem;
-            display: block;
-            margin: 0;
-            padding: 1rem 1.2rem;
-            opacity: 1;
-            transition: opacity 0.4s;
-            cursor: pointer;
-            color: #fff;
-        }
-    }
-    
-    .nav-fixed {
-        background-color: rgba(255, 255, 255, 0.95);
-        border-bottom: 1px solid #bababa;
-        z-index: 1;
-        .item {
-            color: rgba(0, 0, 0, .8);
-        }
-    }
-    
-    .nav-invisible {
-        transform: translate(0, -4rem)
-    }
-    
-    .nav a:hover {
-        opacity: 0.7;
-    }
+@import '../../assets/scss/components/nav.scss';
 </style>

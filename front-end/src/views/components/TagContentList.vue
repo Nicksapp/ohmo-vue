@@ -15,23 +15,18 @@
 </template>
 
 <script>
+    import { mapState } from 'vuex'
     export default {
         data() {
             return {
                 show: true
             }
         },
-        computed: {
-            tagContents () {
-                return this.$store.state.tagContentList.tagContentList
-            },
-            tagId () {
-                return this.$store.state.tagContentList.tagId
-            },
-            tags () {
-                return this.$store.state.tags.tagList
-            }
-        },
+        computed: mapState({
+            tagContents: state => state.tagContentList.tagContentList,
+            tagId: state => state.tagContentList.tagId,
+            tags: state => state.tags.tagList
+        }),
         watch: {
             'tagContents': function(val, oldVal) {
                 this.show = false
@@ -49,44 +44,5 @@
 </script>
 
 <style lang="scss">
-    .list-wrapper {
-        width: 80%;
-        margin: 0 auto;
-        @media screen and (max-width: 768px) {
-            width: 100%;
-        }
-        .list-container {
-            li {
-                border-bottom: 1px solid #eee;
-                list-style: none;
-                a {
-                    padding: 1rem 1.5rem;
-                    border-radius: .5rem;
-                    display: block;
-                    transition: all .3s;
-                    margin: 0;
-                    &:hover {
-                        background-color: Rgba(0, 0, 0, .02);
-                    }
-                }
-                .list-title {
-                    font-size: 2.2rem;
-                    font-weight: 400;
-                    color: #404040;
-                    margin-top: 0;
-                }
-                .list-abstract {
-                    font-size: 1.4rem;
-                    color: #919191;
-                    font-weight: 300;
-                }
-                .list-updated {
-                    font-family: "Comic Sans MS", curslve, sans-serif;
-                    font-size: 1.4rem;
-                    color: #8b8b8b;
-                    padding: 5px 0;
-                }
-            }
-        }
-    }
+@import '../../assets/scss/components/tagContentList.scss';
 </style>

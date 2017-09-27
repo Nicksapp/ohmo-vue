@@ -25,15 +25,9 @@
         <!--回复输入栏-->
         <a id="firstAnchor"></a>
         <h1 id="comment-form-title">回复 {{replyName}}</h1>
-        <div class="comment-form">
-            <!--<input class="form-name" v-model="formName" type="text" placeholder="你的昵称？" maxlength="20" />-->
-    
-            <el-input class="form-name" v-model="formName" placeholder="你的昵称？"></el-input>
-            <!--<textarea class="form-content" v-model="formContent" cols="30" rows="10" placeholder="欢迎发表你的评论-……-"></textarea>-->
-    
-            <el-input class="form-content" type="textarea" :rows="8" :cols="30" placeholder="欢迎发表你的评论-……-" v-model="formContent">
-            </el-input>
-    
+        <div class="comment-form">    
+            <el-input class="form-name" v-model="formName" placeholder="你的昵称？"></el-input>    
+            <el-input class="form-content" type="textarea" :rows="8" :cols="30" placeholder="欢迎发表你的评论-……-" v-model="formContent"></el-input>
             <div class="comment-reply">
                 <a @click="submit()" class="reply reply-submit">提交</a>
             </div>
@@ -116,86 +110,5 @@
 </script>
 
 <style lang="scss">
-    .comment {
-        h1 {
-            border-bottom: 1px dashed #d2d2d2;
-            margin: 1rem;
-            font-size: 2rem;
-        }
-        .comment-item {
-            display: flex;
-            flex-direction: column;
-            flex-wrap: wrap;
-            justify-content: center;
-            font-size: 1rem;
-            .item-title {
-                display: flex;
-                justify-content: space-between;
-                background-color: #f7f7f7;
-                padding: .5rem 1rem;
-                border-radius: .5rem;
-                .title-name {
-                    font-weight: bold;
-                }
-            }
-            .item-content {
-                padding: 1rem;
-            }
-            .item-reply {
-                border: 1px solid #d2d2d2;
-                border-radius: .5rem;
-                margin: 1rem 1rem .5rem;
-                color: #7c7c7c;
-                .item-title {
-                    background-color: #fbfbfb;
-                }
-            }
-            .comment-reply {
-                display: flex;
-                justify-content: flex-end;
-                .reply {
-                    color: #333;
-                    padding: 1rem;
-                    transition: all .4s;
-                }
-                &:hover {
-                    color: #838383;
-                    cursor: pointer;
-                }
-            }
-        }
-        .comment-form {
-            display: flex;
-            flex-direction: column;
-            padding: 1rem;
-            .form-name,
-            .form-content {
-                // border: 1px solid #d2d2d2;
-                margin-bottom: 1rem;
-                // padding: 1rem;
-                font-size: 1.2rem;
-                // border-radius: .5rem;
-            }
-            .form-content {
-                resize: none;
-            }
-            .comment-reply {
-                display: flex;
-                justify-content: flex-end;
-                .reply-submit {
-                    border: 1px solid #d2d2d2;
-                    border-radius: .5rem;
-                    padding: .6rem 1rem;
-                    transition: all .4s;
-                    font-size: 1.1rem;
-                    &:hover {
-                        background: #838383;
-                        color: #fff;
-                        border-color: #838383;
-                        cursor: pointer;
-                    }
-                }
-            }
-        }
-    }
+@import '../../assets/scss/components/comment.scss';
 </style>

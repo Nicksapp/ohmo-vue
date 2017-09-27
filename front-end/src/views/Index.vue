@@ -29,10 +29,13 @@
 <script>  
   import axios from 'axios'
   import { API_ROOT } from '../config'
-  import vHeader from './components/Header.vue'
-  import vFooter from './components/Footer.vue'
-  
+  import { mapState } from 'vuex'
+
   export default {
+    components: {
+      'vHeader': () => import('./components/Header.vue'),
+      'vFooter': () => import('./components/Footer.vue')
+    },
     data() {
       return {
         headline: 'Nickj', // 用户名
@@ -40,11 +43,9 @@
         imgSrc: null // 头图
       }
     },
-    computed: {
-      contentList() {
-        return this.$store.state.contentList.contentList
-      }
-    },
+    computed: mapState({
+      contentList: state => state.contentList.contentList
+    }),
     created() {
       var self = this;
       axios.get(API_ROOT + 'api/content/backgroundimg').then(res => {
@@ -52,10 +53,6 @@
         self.imgSrc = imgURL[Math.floor(Math.random()*(imgURL.length))]
       })
       this.$store.dispatch('getContentByPage', 1)
-    },
-    components: {
-      vHeader,
-      vFooter
     }
   }
 </script>

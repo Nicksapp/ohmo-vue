@@ -20,6 +20,7 @@
 </template>
 
 <script>
+    import { mapState } from 'vuex'
     export default {
         components: {
             TagContentList: function(resolve) {
@@ -41,11 +42,9 @@
         created() {
             this.$store.dispatch('getTags')
         },
-        computed: {
-            tags() {
-                return this.$store.state.tags.tagList
-            }
-        },
+        computed: mapState({
+            tags: state => state.tags.tagList
+        }),
         watch: {
             'tags': function (val) {
                 if (val) {

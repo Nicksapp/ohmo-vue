@@ -16,10 +16,10 @@
 </template>
 
 <script>
+  import { mapState } from 'vuex'
   import marked from 'marked'
   import Prism from 'prismjs'
   import 'prismjs/themes/prism.css'
-  import Comment from './components/Comment.vue'
   
   marked.setOptions({
     highlight: (code) => Prism.highlight(code, Prism.languages.javascript)
@@ -27,13 +27,12 @@
   
   export default {
     components: {
-      Comment
+      'Comment': () => import('./components/Comment.vue')
     },
-    computed: {
-      article() {
-        return this.$store.state.article
-      },
-      content() {
+    computed: mapState({
+      article: state => state.article,
+      loading: state => state.article.loading,
+      content(){
         let _content = this.article.content
         marked(_content, (err, content) => {
           if (!err) {
@@ -41,12 +40,9 @@
           }
         })
         return _content
-      },
-      loading () {
-        return this.$store.state.article.loading
       }
-    },
-    created () {
+    }),
+    created() {
       this.$store.dispatch('getArticle', this.$route.params.id)
     },
     beforeDestroy() {

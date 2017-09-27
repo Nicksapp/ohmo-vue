@@ -5,7 +5,7 @@ import axios from 'axios'
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
 
 export default {
-  // 获取文章列表
+  // 获取文章列表, 现仅返回所有文章的数量
   getAllContentList ({ commit }) {
     commit(types.REQUEST_CONTENT_LIST)
     axios.get(API_ROOT + 'api/contentAll')
@@ -32,7 +32,6 @@ export default {
     axios.get(API_ROOT + 'api/article/' + id)
       .then(response => {
         commit(types.GET_ARTICLE, response.data)
-        console.log('getArticle success');
       })
       .catch(error => {
         commit(types.GET_ARTICLE_FAILURE, error)
