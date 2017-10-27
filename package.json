@@ -16,7 +16,7 @@
   ],
   "author": "Nicksapp",
   "license": "ISC",
-  "dependencies" : {
+  "dependencies": {
     "babel-core": "^6.1.21",
     "babel-preset-stage-3": "^6.1.18",
     "body-parser": "1.12.3",

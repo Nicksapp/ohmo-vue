@@ -49,19 +49,25 @@
       .list-abstract {
         font-size: 1.2rem;
         line-height: 1.9rem;
-        // font-weight: 300;
-        padding: .3rem 0 1.2rem 0;
+        padding: .5rem 0 2.2rem 0;
       }
       .list-info {
-        font-size: .75rem;
+        font-size: 1rem;
         display: flex;
         color: #8492A6;
+        text-transform: uppercase;
+        font-weight: 500;
         .list-author {
           padding: 0 .5rem 0 0;
         }
         .list-created {
-          padding: 0 .5rem;
+          padding: 0 1rem;
+          margin-left: .5rem;
+          border-left: 1px solid #d5dbde;
         }
       }
+    }
+    a {
+      color: #2E2E2E;
     }
   }

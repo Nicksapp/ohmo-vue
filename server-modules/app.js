@@ -42,20 +42,25 @@ app.use((req, res, next) => {
   d.run(next);
 });
 
-// 跨域支持
-app.all('/api/*', (req, res, next) => {
-  const origin = req.headers.origin;
-  if (config.whiteOrigins.indexOf(origin) !== -1) {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-    res.header('Access-Control-Allow-Credentials', true);
-    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, OPTIONS, DELETE');
-  }
-  next();
-});
-
 // api配置
 app.use('/api', apiRouter);
+
+// 跨域支持
+// app.all('/api/*', (req, res, next) => {
+//   const origin = req.headers.origin;
+//   if (config.whiteOrigins.indexOf(origin) !== -1) {
+//     res.header('Access-Control-Allow-Origin', '*');
+//     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+//     res.header('Access-Control-Allow-Credentials', true);
+//     res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, OPTIONS, DELETE');
+//   }
+//   next();
+// });
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 
 // 如果任何路由都没匹配到，则认为 404
 // 生成一个异常让后面的 err handler 捕获

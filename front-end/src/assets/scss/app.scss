@@ -10,6 +10,13 @@ html, body, #app {
 }
 a {
     text-decoration: none;
+    color: #2c3e50;
+    &:link {
+        color: #2c3e50;
+    }
+    &:visited {
+        color: #2c3e50;
+    }
 }
 #app {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;

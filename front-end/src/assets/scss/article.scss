@@ -20,14 +20,21 @@
     // width: 95%;
     max-width: 710px;
     margin: 4rem auto;
+    padding:0 1rem;
     .title {
       text-align: left;
       color: #2E2E2E;
-      font-size: 2.6rem;
+      font-size: 3.2rem;
       font-weight: bold;
     }
+    .create {
+      color: #9EABB3;
+      line-height: 2.2rem;
+      font-size: 1.3rem;
+      text-transform: uppercase;
+    }
     .content {
-      margin: 2rem 1rem;
+      margin: 5rem 0;
       font-size: 1.2rem;
     }
   }

@@ -13,15 +13,16 @@
             <p>微博 <a href="http://weibo.com/516724275">@反贪局局长猴两瓶</a></p>
             <p>本项目源码 <a href="https://github.com/Nicksapp/ohmo-vue">Nicksapp/ohmo-vue</a></p>
         </article>
+
+        <CopyRight />
     </div>
 </template>
 
 <script>
     export default {
         components: {
-            vNav: function(resolve) {
-                require(['./components/Nav'], resolve)
-            }
+            'vNav': () => import('./components/Nav'),
+            'CopyRight': () => import('./components/CopyRight.vue')
         }
     }
 </script>

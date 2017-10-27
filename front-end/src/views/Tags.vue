@@ -16,6 +16,8 @@
             </ul>
         </div>
         <tag-content-list></tag-content-list>
+
+        <CopyRight />
     </div>
 </template>
 
@@ -23,15 +25,10 @@
     import { mapState } from 'vuex'
     export default {
         components: {
-            TagContentList: function(resolve) {
-                require(['./components/TagContentList'], resolve)
-            },
-            vHeader: function(resolve) {
-                require(['./components/Header'], resolve)
-            },
-            vNav: function(resolve) {
-                require(['./components/Nav'], resolve)
-            }
+            'TagContentList': () => import('./components/TagContentList'),
+            'vHeader': () => import('./components/Header'),
+            'vNav': () => import('./components/Nav'),
+            'CopyRight': () => import('./components/CopyRight.vue')
         },
         data() {
             return {

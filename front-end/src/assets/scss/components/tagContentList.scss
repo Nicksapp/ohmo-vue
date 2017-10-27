@@ -8,6 +8,9 @@
         li {
             border-bottom: 1px solid #eee;
             list-style: none;
+            &:last-child {
+                border-bottom: none;
+            }
             a {
                 padding: 1rem 1.5rem;
                 border-radius: .5rem;

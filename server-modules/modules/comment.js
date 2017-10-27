@@ -14,10 +14,8 @@ pub.commentsList = async(req, res) => {
     if (articleId === '') {
         res.status(500).send('id is empty')
     }
-    console.log(articleId)
     const queryComments = () => {
         const targetArticle = AV.Object.createWithoutData('ContentList', articleId)
-        console.log(targetArticle)
         const query = new AV.Query('Comments')
         query.ascending('createdAt')
         query.equalTo('pointerArticle', targetArticle)
@@ -25,7 +23,7 @@ pub.commentsList = async(req, res) => {
     }
     try {
         const data = await queryComments()
-        console.log(data)
+        
         if (data) {
             let arr = []
 
