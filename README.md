@@ -182,11 +182,17 @@ fastClick.attach(document.body) // 消除移动端双击延时
 
 ## 运行截图
 
-<img src="http://7xo8ne.com1.z0.glb.clouddn.com/0526Jietu20170526-174520@2x.jpg" width="40%" />
-<img src="http://7xo8ne.com1.z0.glb.clouddn.com/0526Jietu20170526-174621@2x.jpg" width="40%"/>
-<img src="http://7xo8ne.com1.z0.glb.clouddn.com/0526Jietu20170526-174639@2x.jpg" width="40%"/>
-<img src="http://7xo8ne.com1.z0.glb.clouddn.com/0526Jietu20170526-174607@2x.jpg" width="40%"/>
-<img  src="http://7xo8ne.com1.z0.glb.clouddn.com/0526Jietu20170526-174730@2x.jpg" width="80%"/>
+![](https://ws4.sinaimg.cn/large/006tKfTcly1fluga07h6aj31kw0wl46y.jpg)
+
+![](https://ws2.sinaimg.cn/large/006tKfTcly1fluga7cupej31kw0wnn0u.jpg)
+
+![](https://ws1.sinaimg.cn/large/006tKfTcly1flugaexqjmj31kw0wn0wh.jpg)
+
+![](https://ws2.sinaimg.cn/large/006tKfTcly1flugall9f2j31kw0wnwnu.jpg)
+
+![](https://ws2.sinaimg.cn/large/006tKfTcly1flugb2n36ej30my14un0q.jpg)
+
+
 
 ## 本地预览步骤
 ```javascript
