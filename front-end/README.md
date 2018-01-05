@@ -1,7 +1,5 @@
 # Vue.js+LeanCloud web端轻博客应用 -> Oh-Mo
 
-## 项目简介
-
 ## Build Setup
 
 ``` bash

@@ -14,7 +14,7 @@
     "express",
     "Vue.js"
   ],
-  "author": "Nicksapp",
+  "author": "nicksapp <changjie22@qq.com>",
   "license": "ISC",
   "dependencies": {
     "babel-core": "^6.1.21",
