@@ -18,7 +18,7 @@ export default {
        return {
            isFirst: true,
            page: 1,
-           isEnd: false
+           isEnd: true
        } 
     },
     created () {
@@ -38,11 +38,11 @@ export default {
             if (value > 1 && value < this.allPage) {
                 this.isFirst = false
             } else if (value === this.allPage) {
-                this.isEnd = true
+                this.isEnd = false
                 this.isFirst = false
             } else {
                 this.isFirst = true
-                this.isEnd = false
+                this.isEnd = true
             }
         },
     },
