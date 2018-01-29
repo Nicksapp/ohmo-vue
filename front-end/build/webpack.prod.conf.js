@@ -38,6 +38,13 @@ var webpackConfig = merge(baseWebpackConfig, {
       sourceMap: true
     }),
     // extract css into its own file
+    /**
+     * ExtractTextPlugin 插件用于将 css 从打包好的 js 文件中抽离，
+     * 生成独立的 css 文件，想象一下，当你只是修改了下样式，并没有修改
+     * 页面的功能逻辑，你肯定不希望你的 js 文件 hash 值变化，你肯定是
+     * 希望 css 和 js 能够相互分开，且互不影响。
+     */
+    // contenthash 代表的是文本文件内容的 hash 值
     new ExtractTextPlugin({
       filename: utils.assetsPath('css/[name].[contenthash].css')
     }),
@@ -63,7 +70,17 @@ var webpackConfig = merge(baseWebpackConfig, {
       // necessary to consistently work with multiple chunks via CommonsChunkPlugin
       chunksSortMode: 'dependency'
     }),
+    // 对于被加载两次以上的模块抽离到 common.js 里面
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'common',
+      minChunks: 2
+    }),
     // split vendor js into its own file
+    /**
+     *  CommonsChunkPlugin 用来提取第三方代码，将它们进行抽离，判断资源是否来自 node_modules，
+     *  如果是，则说明是第三方模块，那就将它们抽离。相当于是告诉 webpack 大佬，如果你看见某些模块是来自 node_modules 目录的，
+     *  并且名字是 .js 结尾的话，麻烦把他们都移到 vendor chunk 里去，如果 vendor chunk 不存在的话，就创建一个新的。
+     */
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
       minChunks: function (module, count) {
@@ -82,6 +99,12 @@ var webpackConfig = merge(baseWebpackConfig, {
     new webpack.optimize.CommonsChunkPlugin({
       name: 'manifest',
       chunks: ['vendor']
+    }),
+    // 需要放在其他 CommonChunkPlugin 后面，
+    // 将 webpack 启动时需要执行的 runtime 代码抽离到 runtime.js 中，主要为了让未改动的模块的 hash 不发生变化
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'runtime',
+      minChunks: Infinity
     }),
     // copy custom static assets
     new CopyWebpackPlugin([

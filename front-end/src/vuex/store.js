@@ -1,5 +1,5 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+// import Vue from 'vue'
+// import Vuex from 'vuex'
 
 import actions from './actions'
 
@@ -15,6 +15,7 @@ Vue.use(Vuex)
 
 Vue.config.debug = true
 
+ // 非生产环境下开启严格模式，用以检测是否有在 mutation 外改变 store
 const debug = process.env.NODE_ENV !== 'production'
 
 export default new Vuex.Store({

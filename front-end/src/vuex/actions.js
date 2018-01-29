@@ -1,6 +1,6 @@
 import { API_ROOT } from '../config'
 import * as types from './mutation-types'
-import axios from 'axios'
+// import axios from 'axios'
 
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
 

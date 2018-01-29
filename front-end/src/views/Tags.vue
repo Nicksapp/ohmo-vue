@@ -22,7 +22,6 @@
 </template>
 
 <script>
-    import { mapState } from 'vuex'
     export default {
         components: {
             'TagContentList': () => import('./components/TagContentList'),
@@ -39,7 +38,7 @@
         created() {
             this.$store.dispatch('getTags')
         },
-        computed: mapState({
+        computed: Vuex.mapState({
             tags: state => state.tags.tagList
         }),
         watch: {

@@ -1,10 +1,10 @@
-import Vue from 'vue'
-import Router from 'vue-router'
+// import Vue from 'vue'
+// import VueRouter from 'vue-router'
 import Hello from '@/views/Hello'
 
-Vue.use(Router)
+Vue.use(VueRouter)
 
-export default new Router({
+export default new VueRouter({
     mode: 'history',
     routes: [{
         path: '/',
@@ -50,7 +50,14 @@ export default new Router({
         component: function(resolve) {
             require(['@/views/Login'], resolve)
         }
+    }, {
+      path: '/home',
+      name: 'home',
+      component: function (resolve) {
+        require(['@/views/pages/Index'], resolve)
+      }
     }],
+
     scrollBehavior(to, from, savedPosition) {
         // return 期望滚动到哪个的位置
         // 路由切换时滚动到顶部

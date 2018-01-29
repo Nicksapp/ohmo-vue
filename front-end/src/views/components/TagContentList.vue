@@ -15,14 +15,13 @@
 </template>
 
 <script>
-    import { mapState } from 'vuex'
     export default {
         data() {
             return {
                 show: true
             }
         },
-        computed: mapState({
+        computed: Vuex.mapState({
             tagContents: state => state.tagContentList.tagContentList,
             tagId: state => state.tagContentList.tagId,
             tags: state => state.tags.tagList

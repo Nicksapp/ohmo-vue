@@ -2,6 +2,7 @@ var path = require('path')
 var utils = require('./utils')
 var config = require('../config')
 var vueLoaderConfig = require('./vue-loader.conf')
+var webpack = require('webpack')
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
@@ -23,7 +24,17 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
-    }
+    },
+  },
+  externals: {
+    // 左边是给 require用的, 右边是给全局调用的
+    'vue': 'Vue',
+    'vue-router': 'VueRouter',
+    'vuex': 'Vuex',
+    'axios': 'axios',
+    // 'vue-lazyload': 'VueLazyload',
+    // 'moment': 'moment',
+    // 'element-ui': 'element-ui'
   },
   module: {
     rules: [
