@@ -17,7 +17,7 @@
   
         <section class="list-info">
           <section class="list-author" v-text="item.author"></section> 
-          <section class="list-created" v-text="handleDateFormat(item.createdAt)"></section>
+          <section class="list-created">{{item.createdAt | handleDateFormat}}</section>
         </section>
       </li>
     </ul>

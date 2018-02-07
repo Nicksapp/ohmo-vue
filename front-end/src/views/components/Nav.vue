@@ -10,7 +10,7 @@
             <li>
                 <router-link class="item" :to="{name: 'tags'}">标签</router-link>
             </li>
-            <li v-if="isLogin">
+            <li>
                 <router-link class="item" :to="{name: 'post'}">发布</router-link>
             </li>
             <li v-if="!isLogin">
@@ -40,11 +40,7 @@
             isLogin () {
                 let flag = sessionStorage.getItem('username')
                 let flag02 = this.$store.state.user.isLogin
-                if (flag || flag02) {
-                    return true;
-                } else {
-                    return false;
-                }
+                return !!(flag && flag02)
             }  
         },
         methods: {

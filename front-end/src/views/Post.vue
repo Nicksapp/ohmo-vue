@@ -9,7 +9,7 @@
       </el-col>
       <el-col :xs="6" :sm="4" :lg="2">
         <div class="button-section">
-          <el-button @click="submit()">发布</el-button>
+          <el-button :disabled="!isLogin" @click="submit()">发布</el-button>
         </div>
       </el-col>
     </el-row>
@@ -69,7 +69,15 @@
         const reg = /(\w)|[\u4e00-\u9fa5]/g
         if (this.article) return this.article.match(reg).length
         return 0
-      }
+      },
+      isLogin () {
+        let flag = sessionStorage.getItem('username')
+        let flag02 = this.$store.state.user.isLogin
+        return !!(flag && flag02)
+      }  
+    },
+    created () {
+        this.alertWarn('当前只有登录用户可以发布文章');
     },
     methods: {
       submit() {

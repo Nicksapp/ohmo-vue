@@ -5,7 +5,7 @@
 import App from './App'
 import router from './router'
 import store from './vuex/store'
-import filters from './utils/filter'
+import * as filters from './utils/filter'
 
 import ElementUI from 'element-ui'   // 完整引入
 import 'element-ui/lib/theme-default/index.css'
@@ -18,6 +18,23 @@ fastClick.attach(document.body) // 消除移动端双击延时
 Object.keys(filters).forEach(k => Vue.filter(k, filters[k]))
 
 Vue.config.productionTip = false
+
+// router.beforeEach((to, from, next) => {
+//   if (to.matched.some(record => record.meta.requiresAuth)) {
+//     // this route requires auth, check if logged in
+//     // if not, redirect to login page.
+//     if (!store.state.user.isLogin) {
+//       next({
+//         path: '/login',
+//         query: { redirect: to.fullPath }
+//       })
+//     } else {
+//       next()
+//     }
+//   } else {
+//     next() // 确保一定要调用 next()
+//   }
+// })
 
 /* eslint-disable no-new */
 new Vue({

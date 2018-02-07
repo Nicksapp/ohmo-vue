@@ -1,6 +1,6 @@
 // import Vue from 'vue'
 // import Vuex from 'vuex'
-
+import createLogger from 'vuex/dist/logger'
 import actions from './actions'
 
 // modules 模块分类
@@ -28,5 +28,8 @@ export default new Vuex.Store({
     tags,
     tagContentList,
     user
-  }
+  },
+  plugins: process.env.NODE_ENV !== 'production'
+    ? [createLogger()]
+    : []
 })

@@ -27,7 +27,7 @@ a {
 
 .fade-enter-active,
 .fade-leave-active {
-    transition: all .4s ease;
+    transition: all .4s linear;
 }
 .fade-enter,
 .fade-leave-active {

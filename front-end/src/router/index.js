@@ -40,10 +40,9 @@ export default new VueRouter({
         component: function(resolve) {
             require(['@/views/Post'], resolve)
         },
-        beforeEnter: (to, from, next) => {
-            let _username = sessionStorage.getItem('username')
-            _username ? next() : next('/')
-        }
+        // meta: {
+        //   requiresAuth: true
+        // }
     }, {
         path: '/login',
         name: 'login',
