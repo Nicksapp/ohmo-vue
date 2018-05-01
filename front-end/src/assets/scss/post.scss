@@ -31,9 +31,11 @@ $mainHeight: 100vh-$titleHeight;
   }
   .grid-content {
     height: $mainHeight;
+    box-sizing: border-box;
   }
   .post-section {
     border-right: 1px solid $borderColor;
+    border-top: 1px solid $borderColor;
     .article-textarea {
       height: 92%;
       textarea {

@@ -1,12 +1,13 @@
 .pagination {
     position: relative;
-    width: 80%;
-    max-width: 710px;
-    margin: 0 auto 4rem;
+    box-sizing: border-box;
     font-family: "Open Sans", sans-serif;
     font-size: 1rem;
     color: #9EABB3;
     text-align: center;
+    margin: 0 auto;
+    width: 80%;
+    max-width: 710px;
     .page-number {
         display: inline-block;
         padding: 2px 0;
@@ -36,7 +37,6 @@
     }
 }
 .footer-info {
-    margin-top: 8rem;
     font-size: .75em;
     color: #BBC7CC;
     display: flex;

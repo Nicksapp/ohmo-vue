@@ -32,6 +32,9 @@ export default {
     axios.get(API_ROOT + 'api/article/' + id)
       .then(response => {
         commit(types.GET_ARTICLE, response.data)
+        setTimeout(() => {
+          commit('SET_LOADING_FALSE')
+        }, 400) 
       })
       .catch(error => {
         commit(types.GET_ARTICLE_FAILURE, error)
@@ -50,6 +53,9 @@ export default {
   
   clearArticle ({ commit }) {
     commit(types.CLEAR_ARTICLE)
+    setTimeout(() => {
+      commit('SET_LOADING_TRUE')
+    }, 400) 
   },
   // 根据 文章 id 获取 comments
   getCommentsList ({ commit }, articleId) {

@@ -3,8 +3,7 @@
        v-loading.fullscreen.lock="loading">
     <header class="a-header" 
             :style="{background: 'url('+article.cover+')' + 'center center / cover', backgroundSize: 'cover'}">
-      <nav class="main-nav">
-      </nav>
+      <vNav></vNav>
     </header>
     <div class="article-wrapper">
       <div class="title" v-text="article.title"></div>
@@ -29,7 +28,8 @@
   export default {
     components: {
       'Comment': () => import('./components/Comment.vue'),
-      'CopyRight': () => import('./components/CopyRight.vue')
+      'CopyRight': () => import('./components/CopyRight.vue'),
+      'vNav': () => import('./components/Nav.vue')
     },
     computed: Vuex.mapState({
       article: state => state.article,

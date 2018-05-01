@@ -14,7 +14,7 @@
       </el-col>
     </el-row>
   
-    <el-row>
+    <el-row class="title-content">
       <el-col :xs="16" :sm="12" :lg="12">
         <div class="grid-content post-section">
           <el-input class="article-textarea" type="textarea" placeholder="请输入内容" v-model="article">
@@ -89,7 +89,7 @@
         const _postData = {
           "title": this.title,
           "content": this.article,
-          "abstract": this.article.slice(0, 50)
+          "abstract": this.article.slice(0, 100)
         }
         this.$store.dispatch('submitArticle', _postData)
   

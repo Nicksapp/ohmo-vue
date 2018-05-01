@@ -14,7 +14,7 @@ const mutations = {
     state.title = data.title
     state.createdAt = data.createdAt
     state.cover = data.cover
-    state.loading = false
+    // state.loading = false
   },
   [GET_ARTICLE_FAILURE] (state) {
     return state
@@ -24,7 +24,13 @@ const mutations = {
     state.title = ''
     state.cover = ''
     state.createdAt = ''
-    state.loading = true
+    // state.loading = true
+  },
+  ['SET_LOADING_FALSE'] (state) {
+    state.loading = false;
+  },
+  ['SET_LOADING_TRUE'] (state) {
+    state.loading = true;
   }
 }
 

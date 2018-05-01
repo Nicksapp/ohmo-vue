@@ -38,18 +38,18 @@
       return {
         headline: 'Nickj', // 用户名
         subline: '出发之前永远是梦想，上路之后永远是挑战', // 副标题
-        imgSrc: null // 头图
+        imgSrc: 'http://of30nsqpd.bkt.clouddn.com/2015061101335924.jpeg' // 头图
       }
     },
     computed: Vuex.mapState({
       contentList: state => state.contentList.contentList
     }),
     created() {
-      var self = this;
-      axios.get(API_ROOT + 'api/content/backgroundimg').then(res => {
-        let imgURL = res.data
-        self.imgSrc = imgURL[Math.floor(Math.random()*(imgURL.length))]
-      })
+      // var self = this;
+      // axios.get(API_ROOT + 'api/content/backgroundimg').then(res => {
+      //   let imgURL = res.data
+      //   self.imgSrc = imgURL[Math.floor(Math.random()*(imgURL.length))]
+      // })
       this.$store.dispatch('getContentByPage', 1)
     },
   }

@@ -26,6 +26,7 @@
 }
 article {
     width: 80%;
+    min-height: 61vh;
     margin: 0 auto; 
     font-size: 1.55rem;
     p {
@@ -34,5 +35,4 @@ article {
     a {
         color: #FA5555;  
     }
-
 }
