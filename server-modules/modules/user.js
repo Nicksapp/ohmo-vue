@@ -20,7 +20,6 @@ UserModel.login = async(req, res) => {
     }
 
     AV.User.logIn(_user.username, _user.password).then(function (loginedUser) {
-        console.log(loginedUser);
         res.send(loginedUser);
     }, function (error) {
         console.error(error);

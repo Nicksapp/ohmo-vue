@@ -83,7 +83,6 @@ pub.submitComment = async(req, res) => {
         result.content = data.get('content')
         result.reply = data.get('reply')
         result.createdAt = data.get('createdAt').Format("yyyy-MM-dd hh:mm:ss")
-        console.log(result)
         res.send(result)
     } catch (error) {
         console.log("提交失败:"+error)
