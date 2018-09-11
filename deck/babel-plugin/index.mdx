@@ -1,0 +1,25 @@
+## And [speaker notes][] too!
+
+[speaker notes]: https://github.com/jxnblk/mdx-deck#speaker-notes
+
+```notes
+No one will see this 🙈
+```
+---
+import { CodeSurfer } from "mdx-deck-code-surfer"
+
+<CodeSurfer
+    title="Lines"
+    notes="Use ⬆️ and ⬇️ keys"
+    code={require("!raw-loader!./code-snippets/base.mdx")}
+    lang="javascript"
+    showNumbers={false}
+    steps={[
+        { lines: [3], notes: "Highlight a single line ⬇️" },
+        { lines: [4,5,6], notes: "... or multiple lines ➡️" },
+        { range: [5, 9] }
+    ]}
+/>
+---
+
+# mdx-deck

@@ -21,3 +21,13 @@ npm run unit
 # run all tests
 npm test
 ```
+
+## 问题解决
+
+**1. build 构建中报 sass error**
+
+解决方案：
+
+```js
+npm rebuild node-sass // 对应报错的包，rebuild 即可
+```

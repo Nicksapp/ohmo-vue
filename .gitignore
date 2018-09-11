@@ -4,7 +4,7 @@ start.sh
 .avoscloud
 .leancloud
 public
-
+package-lock.json
 # VIM
 *~
 *.swp

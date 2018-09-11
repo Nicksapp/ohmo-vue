@@ -1,7 +1,7 @@
 {
   "name": "ohmo",
   "version": "1.0.0",
-  "description": "Vue.js+LeanCloud web端轻博客应用 -> Oh-Mo",
+  "description": "Oh-Mo 轻博客应用",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -28,5 +28,10 @@
   },
   "engines": {
     "node": "4.x"
+  },
+  "devDependencies": {
+    "mdx-deck": "1.7.0",
+    "mdx-deck-code-surfer": "0.3.0",
+    "raw-loader": "0.5.1"
   }
 }
