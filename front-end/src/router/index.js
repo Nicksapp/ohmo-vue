@@ -1,7 +1,3 @@
-// import Vue from 'vue'
-// import VueRouter from 'vue-router'
-import Hello from '@/views/Hello'
-
 Vue.use(VueRouter)
 
 export default new VueRouter({
@@ -30,10 +26,6 @@ export default new VueRouter({
         component: function(resolve) {
             require(['@/views/About'], resolve)
         }
-    },{
-        path: '/hello',
-        name: 'Hello',
-        component: Hello
     }, {
         path: '/post',
         name: 'post',

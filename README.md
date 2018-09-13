@@ -2,8 +2,9 @@
 
 ## 项目简介 [在线预览](http://nickj.leanapp.cn/)
 
+[开发指南](https://github.com/Nicksapp/ohmo-vue/blob/master/开发指南.md)
+
 这是一个完全由 Vue 全家桶来实现的轻博客应用，充分应用了Vuex对所有状态数据进行管理并优化整体结构，后端应用Node.js开发的全栈应用，在业余时间持续在GitHub上迭代版本并不断完善功能，由LeanCloud提供数据存储服务(云服务)。
-[在线预览](http://nickj.leanapp.cn/)
 
 ### Version 4.0
 > 完整4.0版本，本次更新及优化点主要新增管理员权限，增加了登录功能，现在只有管理员才能发布文章了，为后期后台管理开发做铺垫.
@@ -223,3 +224,78 @@ $ npm run build
 // 根目录下 leancloud 命令行部署 / 通过 github 部署
 $ lean deploy / lean deploy -g
 ```
+
+## 服务上线指南
+
+首先先提下提交我们的代码上线的过程，线上服务器只需要我们最后的 server 文件以及构建后的前端文件，即根目录下的 public 文件夹下的东东。即在完成每次的开发内容后，记得在 `frond-end` 前端项目中，执行 `npm run build` 代码构建。
+
+可以注意到根目录下的 `server.js` 文件，将代码 push 上去后，会自动执行 `node server.js` 启动 `node` 服务器，配置的地方见 `package.json` 里面的 scripts 部分，当然你也可以根据自己喜欢的方式进行定义。
+
+```json
+"scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+```
+
+再看看` server.js` 需要做些什么，
+
+```js
+'use strict';
+var AV = require('leanengine');
+
+AV.init({
+  appId: process.env.LEANCLOUD_APP_ID,
+  appKey: process.env.LEANCLOUD_APP_KEY,
+  masterKey: process.env.LEANCLOUD_APP_MASTER_KEY
+});
+
+// 如果不希望使用 masterKey 权限，可以将下面一行删除
+AV.Cloud.useMasterKey();
+
+var app = require('./server-modules/app');
+
+// 端口一定要从环境变量 `LEANCLOUD_APP_PORT` 中获取。
+// LeanEngine 运行时会分配端口并赋值到该变量。
+var PORT = parseInt(process.env.LEANCLOUD_APP_PORT || 3000);
+app.listen(PORT, function () {
+  console.log('Node app is running, port:', PORT);
+
+  // 注册全局未捕获异常处理器
+  process.on('uncaughtException', function(err) {
+    console.error("Caught exception:", err.stack);
+  });
+  process.on('unhandledRejection', function(reason, p) {
+    console.error("Unhandled Rejection at: Promise ", p, " reason: ", reason.stack);
+  });
+});
+```
+
+其实就是一些启动 node 服务器以及连接 leancloud 的一些验证信息等各种配置，如果出现异常将错误信息打印等工作。
+
+最后说的就是部署的工作，由于是用的免费测试应用，所以只有一个生产环境，不用管环境的问题。我们使用的部署方式使用官方提供的一套命令行工具即可完成，安装方式：(执行下面的命令即可，需要提前装好 brew)
+
+```js
+brew install lean-cli
+```
+装好后，如果在命令行执行 `lean`，后可以看到使用说明，说明已经安装成功了，接着进行下一步。在项目根目录下，登录自己的 leancloud 账号，并完成当前项目与线上创建应用的绑定。如果项目是第一次绑定，请先执行 `lean init` 初始化。
+
+```js
+lean login
+// 输入邮箱 & 密码
+// 登录成功后
+lean init
+// 可以看到已经创建的应用，选择即可完成绑定,已绑定可键入 lean switch 切换应用
+```
+
+绑定好我们的应用后,为了防止部署后出现问题，可以先执行 `lean up` 尝试在本地启动服务，检查应用是否启动正常。如果有报错，请先检查是否本地端口被占用，换一个即可。
+
+如果前面一切顺利，在根目录下执行
+ 
+```js
+lean deploy
+```
+即完成可对代码进行线上部署。由于是免费的测试服务器，所以会出现时不时的服务无法访问的情况，且一段时间不访问，也会自动进入休眠状态，即再次启动时需要等待服务被唤醒，时间较长。
+
+部署完成后，访问我们线上填写的 url 即可在线看到我们的应用。
+
