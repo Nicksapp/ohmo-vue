@@ -38,7 +38,7 @@
       return {
         headline: 'Nickj', // 用户名
         subline: '出发之前永远是梦想，上路之后永远是挑战', // 副标题
-        imgSrc: 'http://of30nsqpd.bkt.clouddn.com/2015061101335924.jpeg' // 头图
+        imgSrc: '//lc-zsad0m61.cn-n1.lcfile.com/f98678861aa1e89b411f.png' // 头图
       }
     },
     computed: Vuex.mapState({

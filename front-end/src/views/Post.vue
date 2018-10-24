@@ -8,7 +8,7 @@
         </div>
       </el-col>
       <el-col :xs="6" :sm="4" :lg="2">
-        <div class="button-section">
+        <div v-if="isLogin" class="button-section">
           <el-button :disabled="!isLogin" @click="submit()">发布</el-button>
         </div>
       </el-col>
