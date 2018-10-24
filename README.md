@@ -191,10 +191,6 @@ fastClick.attach(document.body) // 消除移动端双击延时
 
 ![](https://ws2.sinaimg.cn/large/006tKfTcly1flugall9f2j31kw0wnwnu.jpg)
 
-![](https://ws2.sinaimg.cn/large/006tKfTcly1flugb2n36ej30my14un0q.jpg)
-
-
-
 ## 本地预览步骤
 ```javascript
 // clone 项目源代码
