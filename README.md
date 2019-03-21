@@ -194,7 +194,7 @@ fastClick.attach(document.body) // 消除移动端双击延时
 ## 本地预览步骤
 ```javascript
 // clone 项目源代码
-$ git clone xxxxxxxxxxxxxxx
+$ git clone https://github.com/Nicksapp/ohmo-vue.git
 
 // 安装服务端相关依赖
 $ cd ohmo
